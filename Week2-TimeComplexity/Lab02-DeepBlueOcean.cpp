@@ -5,9 +5,9 @@
 
 using namespace std;
 
-// int add_sub_operations = 0;
-// int mul_div_operations = 0;
-// int comparison_operations = 0;
+int add_sub_operations = 0;
+int mul_div_operations = 0;
+int comparison_operations = 0;
 
 int countWays(int n, int v, const unordered_set<int>& restricted, vector<bool>& used) {
     if (n == 0) {
@@ -16,12 +16,12 @@ int countWays(int n, int v, const unordered_set<int>& restricted, vector<bool>& 
 
     int total_ways = 0;
     for (int i = 1; i <= used.size(); ++i) {
-        // comparison_operations++;
+        comparison_operations++;
         if (!used[i - 1] && (n != v || restricted.find(i) == restricted.end())) {
-            // comparison_operations++;
+            comparison_operations++;
             used[i - 1] = true;
             total_ways += countWays(n - 1, v, restricted, used);
-            // add_sub_operations++;
+            add_sub_operations++;
             used[i - 1] = false;
         }
     }
@@ -35,11 +35,11 @@ int calculateWays(int n, int v, const vector<int>& student_ids, const vector<int
     for (int restricted_id : restricted_ids) {
         int position = -1;
         for (int i = 0; i < student_ids.size(); ++i) {
-            // comparison_operations++;
+            comparison_operations++;
             if (student_ids[i] == restricted_id) {
-                // comparison_operations++;
+                comparison_operations++;
                 position = i + 1;
-                // add_sub_operations++;
+                add_sub_operations++;
                 break;
             }
         }
