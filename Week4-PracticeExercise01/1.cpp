@@ -69,9 +69,6 @@ Count Odd and Even: The counts of odd and even numbers are accumulated.
 Output Results: The counts of odd and even sums are printed.
 */
 
-
-
-
 #include <iostream>
 #include <vector>
 using namespace std;
